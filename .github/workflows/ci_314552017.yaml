@@ -52,7 +52,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test --reporters=junit --reporter-options outputFile=test-results/junit.xml
+        run: npm test -- --reporter=default --reporter=junit --outputFile.junit=reports/vitest-junit.xml
 
       - name: Publish test results
         if: always()
