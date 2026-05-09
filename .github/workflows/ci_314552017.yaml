@@ -52,4 +52,4 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test -- --reporter=default --reporter=junit --outputFile.junit=reports/vitest-junit.xml
+        run: npm test # -- --reporter=text --reporter=json-summary --reporter=json --outputFile.json=reports/vitest-results.json
