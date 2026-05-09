@@ -52,7 +52,9 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: |
-          npm test -- --reporter=default --reporter=github-actions > vitest-output.txt || true
-          cat vitest-output.txt >> $GITHUB_STEP_SUMMARY
-          npm test -- --reporter=default --reporter=github-actions
+        run: npm test -- --coverage
+      - name: 'Report Coverage'
+        # Set if: always() to also generate the report if tests are failing
+        # Only works if you set `reportOnFailure: true` in your vite config as specified above
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2

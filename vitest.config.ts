@@ -6,7 +6,12 @@ type VitestConfig = ViteUserConfig & {
 
 const config: VitestConfig = {
   test: {
-    exclude: ['dist/**', 'node_modules/**']
+    exclude: ['dist/**', 'node_modules/**'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json-summary', 'json'],
+      reportOnFailure: true
+    }
   }
 };
 
