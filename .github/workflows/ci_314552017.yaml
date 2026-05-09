@@ -53,11 +53,3 @@ jobs:
 
       - name: Run tests
         run: npm test -- --reporter=default --reporter=junit --outputFile.junit=reports/vitest-junit.xml
-
-      - name: Publish test results
-        if: always()
-        uses: dorny/test-reporter@v1
-        with:
-          name: Vitest
-          path: reports/junit.xml
-          reporter: java-junit
