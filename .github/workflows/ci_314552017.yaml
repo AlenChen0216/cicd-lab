@@ -52,4 +52,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test # -- --reporter=text --reporter=json-summary --reporter=json --outputFile.json=reports/vitest-results.json
+        run: |
+          npm test -- --reporter=default --reporter=github-actions > vitest-output.txt || true
+          cat vitest-output.txt >> $GITHUB_STEP_SUMMARY
+          npm test -- --reporter=default --reporter=github-actions
