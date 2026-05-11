@@ -1,6 +1,6 @@
 import Fastify, { FastifyServerOptions } from 'fastify';
 
-export function buildApp(options: FastifyServerOptions={}) {
+export function buildApp(options: FastifyServerOptions = {}) {
   const APP_1 = Fastify({
     logger: options.logger ?? true,
     ...options
@@ -9,7 +9,7 @@ export function buildApp(options: FastifyServerOptions={}) {
   APP_1.get('/', async () => {
     return {
       message: 'CI/CD Lab Fastify app is running',
-      version: process.env.APP_VERSION || 'dev'
+      version: process.env.APP_VERSION || 'dev';
     };
   });
 
