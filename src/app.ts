@@ -1,6 +1,6 @@
 import Fastify, { FastifyServerOptions } from 'fastify';
 
-export function buildApp(options: FastifyServerOptions = {}) {
+export function buildApp(options: FastifyServerOptions={}) {
   const APP_1 = Fastify({
     logger: options.logger ?? true,
     ...options
