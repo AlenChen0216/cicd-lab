@@ -106,4 +106,15 @@ _(請根據您實際操作的失敗案例進行填寫，以下提供填寫範本
 
 3. 測試失敗 :
 
-我故意將 `src` 目錄下的 `app.ts` 的 `/health` api 回傳值改成 `OK`，而非測試中定義的`ok`。
+- 故意製造的錯誤與原因 :
+
+  我故意將 `src` 目錄下的 `app.ts` 的 `/health` api 回傳值改成 `OK`。 當這段修改 push 到 Github 後，Github Action將會嘗試執行上述定義好的 Workflow。此時， `npm test -- --coverage` 會因為 testcase 中的 `expect(response.json()).toEqual({ status: 'ok' });` 不滿足而無法通過測試。
+
+- 修正方式 :
+
+  將`/health` api 回傳值改成正確的 `ok`
+
+- 失敗結果截圖 :
+
+![pic3](./report_pic3.png)
+![pic4](./report_pic4.png)
