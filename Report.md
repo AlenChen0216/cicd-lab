@@ -83,7 +83,6 @@ jobs:
 _(在此貼上您成功執行 GitHub Actions Workflow 的畫面，特別要包含測試結果與 Coverage 顯示於 GitHub Actions 頁面的結果截圖)_
 
 ![pic1](./report_pic1.png)
-![pic2](./report_pic2.png)
 
 ---
 
@@ -104,7 +103,7 @@ _(請根據您實際操作的失敗案例進行填寫，以下提供填寫範本
 
 - 故意製造的錯誤與原因 :
 
-  我故意在 `src` 目錄下的 `/` api 回傳值 Dictionary中，加上 `;`。當這段修改 push 到 Github 後，Github Action將會嘗試執行上述定義好的 Workflow。此時， `npm run typecheck` 會顯示下圖的錯誤訊息並退出。根據 GitHub Actions 原則，這個步驟與後續尚未執行的步驟都會失敗或被終止。
+  我故意在 `src` 目錄下的 `/` api 回傳值 Dictionary中，加上 `;`。當這段修改 push 到 Github 後，Github Action將會嘗試執行上述定義好的 Workflow。此時， `npm run typecheck` 會顯示下圖的錯誤訊息並退出。根據 GitHub Actions 原則，這個步驟與後續尚未執行的步驟都會被終止。
 
 - 修正方式 :
 
@@ -112,13 +111,19 @@ _(請根據您實際操作的失敗案例進行填寫，以下提供填寫範本
 
 - 失敗結果截圖 :
 
-![pic5](./report_pic5.png)
+![pic2](./report_pic2.png)
 
 2. Prettier 格式錯誤 :
 
 - 故意製造的錯誤與原因 :
 
-  我故意在
+  我故意將 `src` 目錄下的 `server.ts` 中的所有 `=` 附近的空白刪除。當這段修改 push 到 Github 後，Github Action將會嘗試執行上述定義好的 Workflow。此時， `npm run format:check` 會顯示下圖的錯誤訊息並退出。根據 GitHub Actions 原則，這個步驟與後續尚未執行的步驟都會被終止。
+
+- 修正方式 :
+
+  將 `=` 附近刪除的空白補回來。
+
+- 失敗結果截圖 :
 
 3. 測試失敗 :
 

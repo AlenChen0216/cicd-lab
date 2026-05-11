@@ -15,7 +15,7 @@ export function buildApp(options: FastifyServerOptions = {}) {
 
   APP_1.get('/health', async () => {
     return {
-      status: 'ok'
+      status: 'OK'
     };
   });
 
