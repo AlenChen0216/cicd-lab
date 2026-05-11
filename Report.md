@@ -20,6 +20,7 @@
    - 最後使用第三方 Action `davelosert/vitest-coverage-report-action@v2`，讀取產出的覆蓋率報告，並將測試結果直接顯示在 GitHub Actions 的 Summary 結果頁面。
 
 **Pipeline YAML 主要內容 (`.github/workflows/ci_314552017.yaml`)：**
+
 ```yaml
 name: ci_314552017
 
@@ -79,7 +80,7 @@ jobs:
 
 ## 2. CI 執行結果截圖
 
-*(在此貼上您成功執行 GitHub Actions Workflow 的畫面，特別要包含測試結果與 Coverage 顯示於 GitHub Actions 頁面的結果截圖)*
+_(在此貼上您成功執行 GitHub Actions Workflow 的畫面，特別要包含測試結果與 Coverage 顯示於 GitHub Actions 頁面的結果截圖)_
 
 ![pic1](./report_pic1.png)
 ![pic2](./report_pic2.png)
@@ -88,7 +89,7 @@ jobs:
 
 ## 3. 失敗案例說明
 
-*(請根據您實際操作的失敗案例進行填寫，以下提供填寫範本：)*
+_(請根據您實際操作的失敗案例進行填寫，以下提供填寫範本：)_
 
 - **故意製造的錯誤與原因**：
   我故意將程式碼修改造成 **[ TypeScript 型別錯誤 / Prettier 格式錯誤 / 測試失敗 ]**。例如：將某個 `src` 目錄下已經寫好正確斷言的測試案例 `expect` 改為不正確的值（測試失敗）。當這段修改推送到 GitHub 之後，CI/CD Pipeline 將會嘗試執行上述定義好的 Workflow。此時對應的檢查或測試指令 (`npm test` 或 `npm run typecheck`) 將會報錯並退出且產生 Non-zero exit code，根據 GitHub Actions 原則，這個步驟與後續尚未執行的步驟都會失敗或被終止。
@@ -97,7 +98,8 @@ jobs:
   在本地端重新檢查發生錯誤的地方，將測試檔或錯誤的原始程式碼改回正常符合邏輯與規範的內容，並確保能在本地端使用 `npm run test` 或相關指令成功通過後，再 `git commit & push` 到 GitHub 觸發新一輪的 CI Pipeline，即可順利轉為通過狀態。
 
 - **失敗結果截圖**：
-  *(在此貼上 Pipeline Failed 的結果頁面截圖)*
+  _(在此貼上 Pipeline Failed 的結果頁面截圖)_
+
 1. TypeScript 型別錯誤 :
 
 2. Prettier 格式錯誤 :
